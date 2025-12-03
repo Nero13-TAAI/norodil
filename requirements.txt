@@ -1,0 +1,26 @@
+# WhatsApp AI Automation System Requirements
+
+# Core dependencies
+flask==3.0.0
+python-dotenv==1.0.0
+requests==2.31.0
+
+# WhatsApp providers
+twilio==8.10.0
+
+# AI providers
+openai==1.6.1
+anthropic==0.8.1
+
+# Database
+# SQLite is built into Python, no additional package needed
+
+# Utilities
+pytz==2023.3
+
+# Optional: For production deployment
+gunicorn==21.2.0  # WSGI server for production
+supervisor==4.2.5  # Process management
+
+# Optional: For monitoring and logging
+colorlog==6.8.0  # Colored logging
