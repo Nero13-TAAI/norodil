@@ -265,6 +265,8 @@ body {
 .stat-icon {
     width: 60px;
     height: 60px;
+    background: var(--primary-color);
+    color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -273,33 +275,32 @@ body {
     transition: var(--transition);
 }
 
-.stat-card:nth-child(1) .stat-icon {
+/* Specific colors for stats grid */
+.stat-icon.icon-blue {
     background: rgba(52, 152, 219, 0.15);
     color: #3498db;
-    /* Blue for Calendar */
 }
 
-.stat-card:nth-child(2) .stat-icon {
+.stat-icon.icon-purple {
     background: rgba(155, 89, 182, 0.15);
     color: #9b59b6;
-    /* Purple for Sparkles */
 }
 
-.stat-card:nth-child(3) .stat-icon {
+.stat-icon.icon-green {
     background: rgba(46, 204, 113, 0.15);
     color: #2ecc71;
-    /* Green for Star/Satisfaction */
 }
 
-.stat-card:nth-child(4) .stat-icon {
+.stat-icon.icon-red {
     background: rgba(231, 76, 60, 0.15);
     color: #e74c3c;
-    /* Red for TV/Media */
 }
 
 .stat-card:hover .stat-icon {
     transform: scale(1.1) rotate(5deg);
 }
+
+
 
 .stat-text {
     display: flex;
