@@ -1061,6 +1061,37 @@ section {
     background: var(--gradient-gold);
 }
 
+/* Simple Social Links for Contact Section */
+.social-links-simple {
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-xs);
+}
+
+.social-link-simple {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: 2px solid var(--gold);
+    background: var(--white);
+    color: var(--gold);
+}
+
+.social-link-simple:hover {
+    background: var(--gradient-gold);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
 /* ==================== FOOTER ==================== */
 .footer {
     background: var(--black);
