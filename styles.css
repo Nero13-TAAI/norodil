@@ -354,14 +354,18 @@ section {
 
 .btn-whatsapp-large,
 .btn-whatsapp-small {
-    background: var(--black);
-    color: var(--white);
+    background: var(--white);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-whatsapp-large:hover,
 .btn-whatsapp-small:hover {
     background: var(--gradient-gold);
-    transform: translateY(-2px);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
 }
 
 .btn-whatsapp-small {
@@ -370,27 +374,31 @@ section {
 }
 
 .btn-cal {
-    background: var(--gray-dark);
-    color: var(--white);
+    background: var(--white);
+    color: var(--gold);
     border: 2px solid var(--gold);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-cal:hover {
     background: var(--gradient-gold);
-    border-color: var(--gold);
-    transform: translateY(-2px);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
 }
 
 .btn-phone {
-    background: var(--black);
-    color: var(--white);
+    background: var(--white);
+    color: var(--gold);
     border: 2px solid var(--gold);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-phone:hover {
     background: var(--gradient-gold);
-    border-color: var(--gold);
-    transform: translateY(-2px);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
 }
 
 /* ==================== STATISTICS SECTION ==================== */
@@ -675,6 +683,16 @@ section {
 
 .about-image {
     position: relative;
+    animation: floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 .about-image::before {
@@ -687,6 +705,16 @@ section {
     border: 3px solid var(--gold);
     border-radius: var(--radius-xl);
     z-index: -1;
+    animation: rotateBorder 20s linear infinite;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .about-image::after {
@@ -697,9 +725,21 @@ section {
     width: 100%;
     height: 100%;
     background: var(--gradient-gold);
-    opacity: 0.1;
+    opacity: 0.15;
     border-radius: var(--radius-xl);
     z-index: -2;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.25;
+        transform: scale(1.05);
+    }
 }
 
 .about-image img {
@@ -709,11 +749,21 @@ section {
     box-shadow: var(--shadow-xl);
     border: 4px solid var(--white);
     transition: var(--transition-slow);
+    animation: imageShadow 4s ease-in-out infinite;
+}
+
+@keyframes imageShadow {
+    0%, 100% {
+        box-shadow: var(--shadow-xl);
+    }
+    50% {
+        box-shadow: var(--shadow-gold);
+    }
 }
 
 .about-image img:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-gold);
+    transform: scale(1.05) rotate(2deg);
+    animation-play-state: paused;
 }
 
 .about-badge {
@@ -941,6 +991,10 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
 }
 
 /* ==================== SOCIAL MEDIA ==================== */
