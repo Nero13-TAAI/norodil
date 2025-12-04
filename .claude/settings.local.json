@@ -4,7 +4,8 @@
       "Bash(start index.html)",
       "Bash(cp:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$(cat <<''EOF''\nFix critical HTML structure issues and clean up layout\n\n- Fixed major nesting issue: removed all content incorrectly nested inside hero section\n- Removed all duplicate sections and repeated content\n- Proper section structure: Hero → Statistics → Trust Badges → Services → About → Pricing → Contact → Footer\n- Cleaned up HTML: reduced from 548 to 323 lines\n- All sections now properly separated and independent\n- Fixed overlapping layers issue\n- Removed FontAwesome dependency for cleaner emoji display\n- Professional, clean structure ready for production\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix critical HTML structure issues and clean up layout\n\n- Fixed major nesting issue: removed all content incorrectly nested inside hero section\n- Removed all duplicate sections and repeated content\n- Proper section structure: Hero → Statistics → Trust Badges → Services → About → Pricing → Contact → Footer\n- Cleaned up HTML: reduced from 548 to 323 lines\n- All sections now properly separated and independent\n- Fixed overlapping layers issue\n- Removed FontAwesome dependency for cleaner emoji display\n- Professional, clean structure ready for production\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

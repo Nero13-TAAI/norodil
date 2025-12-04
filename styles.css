@@ -370,22 +370,26 @@ section {
 }
 
 .btn-cal {
-    background: #4F46E5;
+    background: var(--gray-dark);
     color: var(--white);
+    border: 2px solid var(--gold);
 }
 
 .btn-cal:hover {
-    background: #4338CA;
+    background: var(--gradient-gold);
+    border-color: var(--gold);
     transform: translateY(-2px);
 }
 
 .btn-phone {
-    background: #10B981;
+    background: var(--black);
     color: var(--white);
+    border: 2px solid var(--gold);
 }
 
 .btn-phone:hover {
-    background: #059669;
+    background: var(--gradient-gold);
+    border-color: var(--gold);
     transform: translateY(-2px);
 }
 
@@ -673,11 +677,43 @@ section {
     position: relative;
 }
 
+.about-image::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--gold);
+    border-radius: var(--radius-xl);
+    z-index: -1;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-gold);
+    opacity: 0.1;
+    border-radius: var(--radius-xl);
+    z-index: -2;
+}
+
 .about-image img {
     width: 100%;
     max-width: 400px;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl);
+    border: 4px solid var(--white);
+    transition: var(--transition-slow);
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-gold);
 }
 
 .about-badge {
@@ -790,7 +826,18 @@ section {
 
 /* ==================== CONTACT SECTION ==================== */
 .contact {
-    background: var(--white);
+    background: var(--gradient-light);
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(180deg, var(--white) 0%, transparent 100%);
 }
 
 .contact-wrapper {
@@ -805,33 +852,48 @@ section {
 }
 
 .info-card {
-    background: var(--gray-light);
+    background: var(--white);
     padding: var(--spacing-md);
     border-radius: var(--radius-lg);
     transition: var(--transition);
-    border-left: 4px solid var(--gold);
+    border: 2px solid var(--gray-light);
+    box-shadow: var(--shadow-sm);
 }
 
 .info-card:hover {
     background: var(--white);
-    box-shadow: var(--shadow-md);
-    transform: translateX(8px) scale(1.02);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-5px);
+    border-color: var(--gold);
 }
 
 .info-icon {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    color: var(--white);
+    margin: 0 auto var(--spacing-sm);
+    box-shadow: var(--shadow-sm);
 }
 
 .info-card h3 {
     font-size: 1.2rem;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+    color: var(--black);
+    text-align: center;
 }
 
 .info-card p {
     color: var(--gray);
     line-height: 1.8;
     margin-bottom: var(--spacing-xs);
+    text-align: center;
 }
 
 .info-card a {
@@ -862,8 +924,9 @@ section {
 .contact-map {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     margin-top: var(--spacing-md);
+    border: 3px solid var(--gold);
 }
 
 .contact-map iframe {
@@ -885,6 +948,7 @@ section {
     display: flex;
     gap: var(--spacing-sm);
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -908,11 +972,21 @@ section {
 }
 
 .social-link.instagram {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: var(--black);
+    border: 2px solid var(--gold);
+}
+
+.social-link.instagram:hover {
+    background: var(--gradient-gold);
 }
 
 .social-link.whatsapp {
-    background: #25D366;
+    background: var(--gray-dark);
+    border: 2px solid var(--gold);
+}
+
+.social-link.whatsapp:hover {
+    background: var(--gradient-gold);
 }
 
 /* ==================== FOOTER ==================== */
