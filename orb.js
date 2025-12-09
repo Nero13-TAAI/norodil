@@ -47,11 +47,11 @@ class AnimatedOrb {
     drawGradientOrb(x, y, radius, hue) {
         const gradient = this.ctx.createRadialGradient(x, y, 0, x, y, radius);
 
-        // Gold-based color scheme
-        const color1 = `hsla(${hue}, 70%, 60%, 0.8)`;
-        const color2 = `hsla(${hue + 20}, 60%, 50%, 0.5)`;
-        const color3 = `hsla(${hue - 20}, 50%, 40%, 0.2)`;
-        const color4 = `hsla(${hue}, 40%, 30%, 0)`;
+        // Gold-based color scheme (constrained to gold range 35-55 degrees)
+        const color1 = `hsla(${Math.max(35, Math.min(55, hue))}, 70%, 60%, 0.8)`;
+        const color2 = `hsla(${Math.max(35, Math.min(55, hue + 20))}, 60%, 50%, 0.5)`;
+        const color3 = `hsla(${Math.max(35, Math.min(55, hue - 20))}, 50%, 40%, 0.2)`;
+        const color4 = `hsla(${Math.max(35, Math.min(55, hue))}, 40%, 30%, 0)`;
 
         gradient.addColorStop(0, color1);
         gradient.addColorStop(0.3, color2);
@@ -137,7 +137,7 @@ class AnimatedOrb {
             const sparkleY = centerY + offsetY + Math.sin(sparkleAngle) * sparkleRadius;
             const sparkleSize = Math.sin(this.time * 5 + i) * 2 + 2;
 
-            this.ctx.fillStyle = `rgba(255, 215, 0, ${Math.sin(this.time * 4 + i) * 0.3 + 0.3})`;
+            this.ctx.fillStyle = `rgba(212, 175, 55, ${Math.sin(this.time * 4 + i) * 0.3 + 0.3})`;
             this.ctx.beginPath();
             this.ctx.arc(sparkleX, sparkleY, sparkleSize, 0, Math.PI * 2);
             this.ctx.fill();

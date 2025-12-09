@@ -259,3 +259,173 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('All animations initialized successfully');
 });
+
+// ==================== GOOGLE REVIEWS CAROUSEL ====================
+class ReviewsCarousel {
+    constructor(container) {
+        this.container = container;
+        this.track = container.querySelector('.carousel-track');
+        this.cards = Array.from(container.querySelectorAll('.review-card'));
+        this.prevBtn = container.querySelector('.prev-btn');
+        this.nextBtn = container.querySelector('.next-btn');
+        this.dots = Array.from(container.querySelectorAll('.dot'));
+
+        this.currentIndex = 0;
+        this.autoplayInterval = null;
+        this.autoplayDelay = 5000; // 5 seconds
+
+        this.init();
+    }
+
+    init() {
+        // Set initial card positions
+        this.updateCards();
+
+        // Event listeners
+        this.prevBtn.addEventListener('click', () => this.prev());
+        this.nextBtn.addEventListener('click', () => this.next());
+
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prev();
+            if (e.key === 'ArrowRight') this.next();
+        });
+
+        // Touch swipe support
+        this.setupTouchEvents();
+
+        // Start autoplay when in viewport
+        this.setupIntersectionObserver();
+
+        // Pause on hover
+        this.container.addEventListener('mouseenter', () => this.pauseAutoplay());
+        this.container.addEventListener('mouseleave', () => this.startAutoplay());
+    }
+
+    updateCards() {
+        this.cards.forEach((card, index) => {
+            // Remove all position classes
+            card.classList.remove('active', 'next', 'next-2', 'prev', 'prev-2', 'hidden');
+
+            const position = this.getCardPosition(index);
+
+            if (position === 0) {
+                card.classList.add('active');
+            } else if (position === 1) {
+                card.classList.add('next');
+            } else if (position === 2) {
+                card.classList.add('next-2');
+            } else if (position === -1) {
+                card.classList.add('prev');
+            } else if (position === -2) {
+                card.classList.add('prev-2');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Update dots
+        this.dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+
+    getCardPosition(cardIndex) {
+        const diff = cardIndex - this.currentIndex;
+        const total = this.cards.length;
+
+        // Handle wrap-around
+        if (diff > total / 2) return diff - total;
+        if (diff < -total / 2) return diff + total;
+
+        return diff;
+    }
+
+    next() {
+        this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+        this.updateCards();
+        this.resetAutoplay();
+    }
+
+    prev() {
+        this.currentIndex = (this.currentIndex - 1 + this.cards.length) % this.cards.length;
+        this.updateCards();
+        this.resetAutoplay();
+    }
+
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.updateCards();
+        this.resetAutoplay();
+    }
+
+    startAutoplay() {
+        this.autoplayInterval = setInterval(() => this.next(), this.autoplayDelay);
+    }
+
+    pauseAutoplay() {
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+        }
+    }
+
+    resetAutoplay() {
+        this.pauseAutoplay();
+        this.startAutoplay();
+    }
+
+    setupTouchEvents() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        this.track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        this.track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe(touchStartX, touchEndX);
+        }, { passive: true });
+    }
+
+    handleSwipe(startX, endX) {
+        const threshold = 50;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                this.next();
+            } else {
+                this.prev();
+            }
+        }
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.startAutoplay();
+                } else {
+                    this.pauseAutoplay();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(this.container);
+    }
+}
+
+// Initialize carousel when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        new ReviewsCarousel(carouselContainer);
+        console.log('Reviews carousel initialized successfully');
+    }
+});

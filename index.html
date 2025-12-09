@@ -42,7 +42,6 @@
     <!-- Hero Section -->
     <section id="anasayfa" class="hero">
         <div class="hero-overlay"></div>
-        <div id="orb-container" class="orb-container"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Dil ve Konuşma Terapisinde<br>Uzman Destek</h1>
@@ -51,6 +50,79 @@
                     <a href="#randevu" class="btn btn-primary">Hemen Randevu Al</a>
                     <a href="#hizmetlerimiz" class="btn btn-secondary">Hizmetlerimiz</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Carousel -->
+    <section class="reviews-carousel-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Danışan Yorumları</span>
+                <h2>Hastalarımız Ne Diyor?</h2>
+                <p>Google Maps üzerindeki gerçek hasta yorumları</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Review Card 1 -->
+                    <div class="review-card" data-index="0">
+                        <img src="google map/1.JPG" alt="Google Review 1" loading="lazy">
+                    </div>
+                    <!-- Review Card 2 -->
+                    <div class="review-card" data-index="1">
+                        <img src="google map/2.JPG" alt="Google Review 2" loading="lazy">
+                    </div>
+                    <!-- Review Card 4 -->
+                    <div class="review-card" data-index="2">
+                        <img src="google map/4.JPG" alt="Google Review 4" loading="lazy">
+                    </div>
+                    <!-- Review Card 5 -->
+                    <div class="review-card" data-index="3">
+                        <img src="google map/5.JPG" alt="Google Review 5" loading="lazy">
+                    </div>
+                    <!-- Review Card 6 -->
+                    <div class="review-card" data-index="4">
+                        <img src="google map/6.JPG" alt="Google Review 6" loading="lazy">
+                    </div>
+                    <!-- Review Card 7 -->
+                    <div class="review-card" data-index="5">
+                        <img src="google map/7.JPG" alt="Google Review 7" loading="lazy">
+                    </div>
+                    <!-- Review Card 8 -->
+                    <div class="review-card" data-index="6">
+                        <img src="google map/8.JPG" alt="Google Review 8" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <button class="carousel-btn prev-btn" aria-label="Önceki yorum">
+                    <span>‹</span>
+                </button>
+                <button class="carousel-btn next-btn" aria-label="Sonraki yorum">
+                    <span>›</span>
+                </button>
+
+                <!-- Dot Indicators -->
+                <div class="carousel-dots">
+                    <button class="dot active" data-slide="0" aria-label="Yorum 1"></button>
+                    <button class="dot" data-slide="1" aria-label="Yorum 2"></button>
+                    <button class="dot" data-slide="2" aria-label="Yorum 4"></button>
+                    <button class="dot" data-slide="3" aria-label="Yorum 5"></button>
+                    <button class="dot" data-slide="4" aria-label="Yorum 6"></button>
+                    <button class="dot" data-slide="5" aria-label="Yorum 7"></button>
+                    <button class="dot" data-slide="6" aria-label="Yorum 8"></button>
+                </div>
+            </div>
+
+            <!-- Google Maps Link -->
+            <div class="reviews-cta">
+                <a href="https://www.google.com/maps?ll=37.934876,40.199363&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=10565392937494105477"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-secondary">
+                    Tüm Yorumları Google Maps'te Görüntüle →
+                </a>
             </div>
         </div>
     </section>
@@ -340,6 +412,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="orb.js"></script>
 </body>
 </html>
